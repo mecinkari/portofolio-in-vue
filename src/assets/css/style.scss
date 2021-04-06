@@ -22,14 +22,20 @@ sans-serif;
 }
 
 body {
-    font-size: 1.175rem;
+    font-size: 1rem;
     font-family: $font-sans-serif;
 }
 
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+// Navbar
 .navbar {
     padding: 1.25rem;
     background: map-get($map: $colors, $key: 'white');
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
 
     &_wrapper {
         display: flex;
@@ -57,5 +63,71 @@ body {
         &.active {
             color: map-get($map: $colors, $key: 'primary');
         }
+    }
+}
+
+// Margin and Padding
+@for $i from 1 through 10 {
+
+    // margin
+    .margin-#{$i} {
+        margin: #{$i}rem;
+    }
+
+    .margin-y-#{$i} {
+        margin-top: #{$i}rem;
+        margin-bottom: #{$i}rem;
+    }
+
+    .margin-x-#{$i} {
+        margin-left: #{$i}rem;
+        margin-right: #{$i}rem;
+    }
+
+    .margin-top-#{$i} {
+        margin-top: #{$i}rem;
+    }
+
+    .margin-bottom-#{$i} {
+        margin-bottom: #{$i}rem;
+    }
+
+    .margin-left-#{$i} {
+        margin-left: #{$i}rem;
+    }
+
+    .margin-right-#{$i} {
+        margin-right: #{$i}rem;
+    }
+
+    // Padding
+    .padding-#{$i} {
+        padding: #{$i}rem;
+    }
+
+    .padding-y-#{$i} {
+        padding-top: #{$i}rem;
+        padding-bottom: #{$i}rem;
+    }
+
+    .padding-x-#{$i} {
+        padding-left: #{$i}rem;
+        padding-right: #{$i}rem;
+    }
+
+    .padding-top-#{$i} {
+        padding-top: #{$i}rem;
+    }
+
+    .padding-bottom-#{$i} {
+        padding-bottom: #{$i}rem;
+    }
+
+    .padding-left-#{$i} {
+        padding-left: #{$i}rem;
+    }
+
+    .padding-right-#{$i} {
+        padding-right: #{$i}rem;
     }
 }
