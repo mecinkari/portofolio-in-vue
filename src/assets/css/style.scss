@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap');
+
+$colors: ('white': #ffffff,
+    'primary': #2ec4b6,
+    'primary-light': #cbf3f0,
+    'secondary': #ff9f1c,
+    'secondary-light': #ffbf69,
+    'danger': #ff6b6b,
+);
+
+$font-serif: 'Noto Serif',
+serif;
+
+$font-sans-serif: 'Nunito Serif',
+sans-serif;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+body {
+    font-size: 1.175rem;
+    font-family: $font-sans-serif;
+}
+
+.navbar {
+    padding: 1.25rem;
+    background: map-get($map: $colors, $key: 'white');
+    border-bottom: 1px solid #ddd;
+
+    &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    &_brand {
+        color: map-get($map: $colors, $key: 'primary');
+        font-weight: 700;
+    }
+
+    &_links {
+        display: inline-block;
+    }
+
+    &_link {
+        color: darken($color: map-get($map: $colors, $key: 'primary'), $amount: 30);
+
+        &:not(:last-child) {
+            margin-right: 1.25rem;
+        }
+
+        &.active {
+            color: map-get($map: $colors, $key: 'primary');
+        }
+    }
+}

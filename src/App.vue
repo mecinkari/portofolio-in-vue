@@ -1,32 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <nav class="navbar">
+      <div class="navbar_wrapper">
+        <router-link to="/" class="navbar_brand">Mecinkari</router-link>
+        <div class="navbar_links">
+          <router-link to="/" active-class="active" class="navbar_link"
+            >Home</router-link
+          >
+          <router-link to="/about" active-class="active" class="navbar_link"
+            >About</router-link
+          >
+        </div>
+      </div>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
