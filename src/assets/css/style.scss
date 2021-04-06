@@ -8,10 +8,16 @@ $colors: ('white': #ffffff,
     'danger': #ff6b6b,
 );
 
+$text-aligns: ('left': left,
+    'center': center,
+    'right': right,
+    'justify': justify,
+);
+
 $font-serif: 'Noto Serif',
 serif;
 
-$font-sans-serif: 'Nunito Serif',
+$font-sans-serif: 'Nunito Sans',
 sans-serif;
 
 * {
@@ -31,9 +37,59 @@ body {
     margin: 0 auto;
 }
 
+h1,
+.h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2,
+.h2 {
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+h3,
+.h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+h4,
+.h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+h5,
+.h5 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+h6,
+.h6 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+@each $name,
+$val in $colors {
+    .text-#{$name} {
+        color: #{$val};
+    }
+}
+
+@each $name,
+$val in $text-aligns {
+    .text-#{$name} {
+        text-align: #{$val};
+    }
+}
+
 // Navbar
 .navbar {
-    padding: 1.25rem;
+    // padding: 1.25rem;
     background: map-get($map: $colors, $key: 'white');
     border-bottom: 1px solid #eee;
 
@@ -46,6 +102,7 @@ body {
 
     &_brand {
         color: map-get($map: $colors, $key: 'primary');
+        padding: 1.25rem;
         font-weight: 700;
     }
 
@@ -54,14 +111,31 @@ body {
     }
 
     &_link {
-        color: darken($color: map-get($map: $colors, $key: 'primary'), $amount: 30);
+        color: #555;
+        position: relative;
+        padding: 1.25rem;
+        font-weight: 400;
 
-        &:not(:last-child) {
-            margin-right: 1.25rem;
+        // &:not(:last-child) {
+        //     margin-right: 1.25rem;
+        // }
+
+        &:hover {
+            color: #111;
         }
 
-        &.active {
+        &.router-link-exact-active {
             color: map-get($map: $colors, $key: 'primary');
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: map-get($map: $colors, $key: 'primary');
+            }
         }
     }
 }
@@ -129,5 +203,107 @@ body {
 
     .padding-right-#{$i} {
         padding-right: #{$i}rem;
+    }
+}
+
+// Section
+.section {
+    padding: 4rem 8rem;
+    background: white;
+
+    &-2 {
+        background: #fafafa;
+    }
+
+}
+
+@media screen and (max-width: 960px) {
+    .section {
+        padding: 4rem 1rem;
+    }
+}
+
+// Window class
+.window {
+    display: flex;
+    width: 100%;
+    border: 1px solid #aaa;
+    box-shadow: 0.25rem 0.25rem 0 0px #aaa;
+    flex-direction: column;
+
+    &-navigation {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        // padding: 1rem;
+        background: #fefefe;
+        border-bottom: 1px solid #aaa;
+
+        &-name {
+            padding: 0.5rem 1.25rem;
+        }
+
+        &-buttons {
+            display: flex;
+
+            .minimize,
+            .zoom,
+            .close {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding: 0.5rem 1.25rem;
+
+                &:hover {
+                    background: rgba($color: #000000, $alpha: 0.05);
+                    cursor: pointer;
+                }
+            }
+
+            .minimize {
+                span {
+                    display: block;
+                    width: 10px;
+                    background: #555;
+                    height: 1px;
+                }
+            }
+
+            .zoom {
+                span {
+                    display: block;
+                    width: 10px;
+                    border: 1px solid #555;
+                    height: 10px;
+                }
+            }
+
+            .close {
+                span {
+                    position: relative;
+                    display: block;
+                    width: 14px;
+                    background: #555;
+                    height: 1px;
+                    transform: rotate(45deg);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 100%;
+                        height: 100%;
+                        background: #555;
+                        transform: translate(-50%, -50%) rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &-content {
+        padding: 1rem;
     }
 }
