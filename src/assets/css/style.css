@@ -844,13 +844,6 @@ hr {
   padding: 0.5rem 1.25rem;
 }
 
-.window-navigation-buttons .minimize:hover,
-.window-navigation-buttons .zoom:hover,
-.window-navigation-buttons .close:hover {
-  background: rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-}
-
 .window-navigation-buttons .minimize span {
   display: block;
   width: 10px;
